@@ -1,6 +1,15 @@
 from os import system
 import random
 
+# these are the built in mac voice names
+feminine_names = ["Agnes", "Kathy", "princess", "Vicki", "Victoria"]
+masculine_names = ["Alex", "Bruce", "Fred", "Junior", "Ralph"]
+novelty_voices = [ "Albert", "Bad News", "Bahh", "Boing", "Bubbles",
+        "Cellos", "Deranged", "Good News", "Hysterical",
+        "Pipe Organ", "Trinoids", "Whisper", "Zarvox" ]
+
+all_names = feminine_names + masculine_names + novelty_voices
+
 def sayit(what="Hello World!", who="Victoria"):
     """Say something with the Mac text to speech feature
         what -- the string message you want to say (default = "Hello World!")
@@ -18,10 +27,8 @@ def introduce(name):
 
     sayit("Hello, I am" + name, name)
 
-def everybody(nameslist=""):
-    # if all_names is default you get an error
-    if nameslist == "": nameslist = all_names
-
+def everybody(nameslist=all_names):
+    
     for name in nameslist:
         introduce(name)
 
@@ -30,18 +37,10 @@ def discuss(message_a, message_b, person_a="Victoria", person_b="Alex"):
     sayit(message_a, person_a)
     sayit(message_b, person_b)
 
-def random_name(nameslist=""):
+def random_name(nameslist=all_names):
     
-    if nameslist == "": nameslist = all_names
     return random.choice(nameslist)
 
-feminine_names = ["Agnes", "Kathy", "princess", "Vicki", "Victoria"]
-masculine_names = ["Alex", "Bruce", "Fred", "Junior", "Ralph"]
-novelty_voices = [ "Albert", "Bad News", "Bahh", "Boing", "Bubbles",
-        "Cellos", "Deranged", "Good News", "Hysterical",
-        "Pipe Organ", "Trinoids", "Whisper", "Zarvox" ]
-
-all_names = feminine_names + masculine_names + novelty_voices
 
 if __name__ == '__main__':
 
